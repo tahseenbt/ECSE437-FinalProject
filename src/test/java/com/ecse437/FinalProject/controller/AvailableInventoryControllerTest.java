@@ -1,10 +1,11 @@
 package com.ecse437.FinalProject.controller;
 import com.ecse437.FinalProject.controller.AvailableInventoryController;
 import com.ecse437.FinalProject.driver.Inventory;
+import com.ecse437.FinalProject.model.FoodItem;
 import com.ecse437.FinalProject.model.InventoryItem;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @AutoConfigureJsonTesters
@@ -48,11 +51,11 @@ public class AvailableInventoryControllerTest
     public void testGetAvailableItems() throws Exception
     {
         // the method in that controller should return a list of size 2
-        MockHttpServletResponse resp = mvc.perform(get("/Hellman's/Mayonnaise")).andReturn().getResponse();
+        MockHttpServletResponse resp = mvc.perform(get("/Hellman\'s/Mayonnaise")).andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), resp.getStatus());
         // made sure status is 200, now let's make sure the list has two items
         ObjectMapper mpr = new ObjectMapper();
-        List<InventoryItem> items = new ObjectMapper().readValue(resp.getContentAsByteArray(), new TypeReference<List<InventoryItem>>() {});
+        List<FoodItem> items = new ObjectMapper().readValue(resp.getContentAsByteArray(), new TypeReference<List<FoodItem>>() {});
         assertEquals(2, items.size());
     }
 }
