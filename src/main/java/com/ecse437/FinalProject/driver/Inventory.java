@@ -42,7 +42,7 @@ public class Inventory {
         Date expiryDate2;
         try
         {
-            expiryDate2 = formatter.parse(expiry1);
+            expiryDate2 = formatter.parse(expiry2);
         }
         catch (ParseException e)
         {
@@ -58,7 +58,7 @@ public class Inventory {
         Date expiryDate3;
         try
         {
-            expiryDate3 = formatter.parse(expiry1);
+            expiryDate3 = formatter.parse(expiry3);
         }
         catch (ParseException e)
         {
