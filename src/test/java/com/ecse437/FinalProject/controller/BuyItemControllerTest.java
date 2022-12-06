@@ -3,6 +3,7 @@ import com.ecse437.FinalProject.controller.AvailableInventoryController;
 import com.ecse437.FinalProject.driver.Inventory;
 import com.ecse437.FinalProject.model.FoodItem;
 import com.ecse437.FinalProject.model.InventoryItem;
+import com.ecse437.FinalProject.model.Receipt;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -32,9 +33,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @ExtendWith(SpringExtension.class)
 @AutoConfigureJsonTesters
-@WebMvcTest(AvailableInventoryController.class)
-public class AvailableInventoryControllerTest
-{
+@WebMvcTest(BuyItemController.class)
+
+public class BuyItemControllerTest {
     @Autowired
     private MockMvc mvc;
     private ResultActions MockHttpServletResponse;
@@ -54,19 +55,32 @@ public class AvailableInventoryControllerTest
     }
 
     @Test
-    public void testGetAvailableItems() throws Exception
+    public void testBuyItemWhenAvailable() throws Exception
     {
         // the method in that controller should return a list of size 2
         // MockHttpServletResponse resp = mvc.perform(get("/available/Hellman\'s/Mayonnaise")).andReturn().getResponse();
-        ResultActions performed = mvc.perform(get("/available/Hellman\'s/Mayonnaise"));
+        ResultActions performed = mvc.perform(get("/buy/Hellman\'s/Mayonnaise"));
         MvcResult res = performed.andReturn();
         MockHttpServletResponse resp = res.getResponse();
 
         assertEquals(HttpStatus.OK.value(), resp.getStatus());
-        // made sure status is 200, now let's make sure the list has two items
+
         ObjectMapper mpr = new ObjectMapper();
-        List<FoodItem> items = mpr.readValue(resp.getContentAsByteArray(), new TypeReference<List<FoodItem>>() {});
-        assertEquals(2, items.size());
+        Receipt purchase = mpr.readValue(resp.getContentAsByteArray(), Receipt.class);
+        assertEquals(String.valueOf(8.50), purchase.getContent()); // 8.50 is the price of mayonnaise
+    }
+
+    public void testBuyItemWhenUnavailable() throws Exception
+    {
+        // testing buying an item that is not in the inventory
+        ResultActions performed = mvc.perform(get("/buy/Hellman\'s/Mayonnaise"));
+        MvcResult res = performed.andReturn();
+        MockHttpServletResponse resp = res.getResponse();
+
+        assertEquals(HttpStatus.OK.value(), resp.getStatus());
+
+        ObjectMapper mpr = new ObjectMapper();
+        Receipt purchase = mpr.readValue(resp.getContentAsByteArray(), Receipt.class);
+        assertEquals("OUT OF STOCK", purchase.getContent());
     }
 }
-
