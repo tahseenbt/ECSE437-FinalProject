@@ -92,4 +92,9 @@ public class Inventory {
     public ArrayList<InventoryItem> getAvailableItems() {
         return availableItems;
     }
+
+    public static void resetInstance()
+    {
+        INSTANCE = null;
+    }
 }
