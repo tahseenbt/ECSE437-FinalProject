@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @AutoConfigureJsonTesters
 @WebMvcTest(AvailableInventoryController.class)
-public class TestAvailableInventoryController
+public class AvailableInventoryControllerTest
 {
     private MockMvc mvc;
     private ResultActions MockHttpServletResponse;
