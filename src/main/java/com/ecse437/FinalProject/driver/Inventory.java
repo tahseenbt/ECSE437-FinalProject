@@ -19,6 +19,9 @@ public class Inventory {
     private Inventory()
     {
         // add some sample items to the available items list
+
+        availableItems = new ArrayList<>();
+
         String expiry1 = "31-Dec-2022";
         DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
         Date expiryDate1;
