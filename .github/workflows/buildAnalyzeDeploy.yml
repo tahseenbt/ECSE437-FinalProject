@@ -36,6 +36,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=tahseenbt_ECSE437-FinalProject -Pcoverage
   buildForDeployment:
     runs-on: ubuntu-latest
+    needs: buildAndAnalyze
 
     steps:
       - uses: actions/checkout@v3
