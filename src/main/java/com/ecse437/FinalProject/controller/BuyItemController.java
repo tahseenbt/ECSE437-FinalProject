@@ -29,6 +29,7 @@ public class BuyItemController {
                 Inventory.getInstance().getAvailableItems().remove(cur);
                 String itemPrice = String.valueOf(cur.getPrice());
                 Receipt rec = new Receipt(itemPrice);
+                return rec;
             }
         }
         // didn't find the item available, so we need to return a receipt that indicates the item was out of stock
