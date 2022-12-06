@@ -12,6 +12,10 @@ public class FoodItem extends InventoryItem{
         calories = pCalories;
         expirationDate = pExpirationDate;
     }
+    public FoodItem()
+    {
+        super();
+    }
 
     public int getCalories() {
         return calories;

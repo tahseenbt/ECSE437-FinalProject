@@ -16,6 +16,9 @@ public abstract class InventoryItem {
         price = pPrice;
     }
 
+    protected InventoryItem()
+    {}
+
     public String getDescription() {
         return description;
     }
