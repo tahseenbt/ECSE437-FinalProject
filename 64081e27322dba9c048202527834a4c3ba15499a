@@ -39,6 +39,30 @@
       },
       "revId": "64081e27322dba9c048202527834a4c3ba15499a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3749addf_ce8992aa",
+        "filename": "src/main/java/com/ecse437/FinalProject/model/FurnitureItem.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1020595
+      },
+      "writtenOn": "2022-12-07T02:41:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22de0e37_1181f08d",
+      "range": {
+        "startLine": 31,
+        "startChar": 16,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "64081e27322dba9c048202527834a4c3ba15499a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
