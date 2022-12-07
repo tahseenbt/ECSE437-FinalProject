@@ -56,6 +56,23 @@
       },
       "revId": "a6072dfba336fee4ea388353482a8fa8a4ff93a4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c4cee2_08077d54",
+        "filename": "src/main/java/com/ecse437/FinalProject/model/FurnitureItem.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1020595
+      },
+      "writtenOn": "2022-12-07T02:44:46Z",
+      "side": 1,
+      "message": "make sure to add a semicolon at the end!",
+      "revId": "a6072dfba336fee4ea388353482a8fa8a4ff93a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
